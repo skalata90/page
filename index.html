@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<title>Document</title>
+</head>
+<body>
+ 	<div id="overlay"></div> 
+	<div id="mySidenav" class="sidenav">
+	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	    <ul id="category-tabs">
+			<li><a style="margin-left:20px;" href="">HOME</a></li>
+		    <li>
+		    	<a href="javascript:void"><i class="fa fa-plus" aria-hidden="true"> THE COURSE</i>
+		        <ul class="hidden">
+		            <li><a href="javascript:void">SUB LINK 1</a></li>
+		            <li><a href="javascript:void">SUB LINK 2</a></li>
+		            <li><a href="javascript:void">SUB LINK 3</a></li>
+		        </ul>
+		    </li>
+		    <li>
+		    	<a href="javascript:void"><i class="fa fa-plus" aria-hidden="true"> VISITORS</i>
+		        <ul class="hidden">
+		            <li><a href="javascript:void">SUB LINK 1</a></li>
+		        </ul>
+		    </li>
+		    <li>
+		    	<a href="javascript:void"><i class="fa fa-plus" aria-hidden="true"> THE CLUB</i>
+		        <ul class="hidden">
+		            <li><a href="javascript:void">SUB LINK 1</a></li>
+		        </ul>
+		    </li>
+		    <li><a style="margin-left:20px;" href="">PROFESSIONAL</a></li>
+		    <li>
+		    	<a href="javascript:void"><i class="fa fa-plus" aria-hidden="true"> HERRITAGE</i>
+		        <ul class="hidden">
+		            <li><a href="javascript:void">SUB LINK 1</a></li>
+		        </ul>
+		    </li>
+		    <li>
+		    	<a href="javascript:void"><i class="fa fa-plus" aria-hidden="true"> FINAL QUALIFYING</i>
+		        <ul class="hidden">
+		            <li><a href="javascript:void">SUB LINK 1</a></li>
+		            <li><a href="javascript:void">SUB LINK 2</a></li>
+		            <li><a href="javascript:void">SUB LINK 3</a></li>
+		        </ul>
+		    </li>
+		    <li><a style="margin-left:20px;" href="">CONTACT</a></li>
+		</ul>
+
+		<p>TELEPHONE 01623 753225<br>PRO SHOP 01623 753087</p>
+		<p class="websiteBy">Website by GolfWorking</p>
+	</div>	
+
+	<div id="top">
+		<span onclick="openNav()"><i class="fa fa-bars" aria-hidden="true"> MENU</i></span>
+	</div>
+
+	<main>
+		<h1>HEADING ONE</h1>
+
+		<h4>We are able to cater for both large and small parties, with easy access for all forms of transport, including large buses.
+		</h4>
+		
+		<div id="wrapper">
+			<div class="leftSideText">
+				<h3>HEADING THREE</h3>
+				<p>For players that wish to warm up, the club has a ‘grass’ driving range and a short game area with balls available to purchase at £2.00 for 30 balls. These facilitys are available only for members, guests and visitors.<br><br>
+	            <a href="">www.doubletree3.hilton.com</a></p>
+			</div>
+
+			<div class="rightSideForm">
+				<p>We will get back to you within 24 hours to confirm your tee-time.</p>
+
+				<form action="" method="post" name="form">
+				    <div>
+				        <label for="name">Name</label>
+				        <input type="text" id="name" name="name">
+				    </div>
+				    <div>
+				        <label for="mail">Email Address</label>
+				        <input type="email" id="email" name="email">
+				    </div>
+				    <div>
+				        <label for="telephone">Telephone No.</label>
+				        <input id="telephone" name="telephone"></input>
+				    </div>
+				    <div>
+				        <label for="date">Date</label>
+				        <input type="date" id="date" name="date"></input>
+				    </div>
+				    <div>
+				        <label for="time">Preferred Time</label>
+				        <input type="time" id="time" name="time"></input>
+				    </div>
+				    <div>
+				        <label for="number">Number of Golfers</label>
+				        <input type="number" id="numberGolfers" name="numberGolfers"></input>
+				    </div>
+				    <div class="button">
+					  	<button type="submit">SEND FORM</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+
+	<script>
+		/* Set the width of the side navigation */
+		function openNav() {
+		    document.getElementById("mySidenav").style.width = "400px";
+		    document.getElementById("overlay").style.display = "block";
+		}
+
+		/* Set the width of the side navigation to 0 */
+		function closeNav() {
+		    document.getElementById("mySidenav").style.width = "0";
+		    document.getElementById("overlay").style.display = "none";
+		}
+
+		// toggle sub menu
+		$('.hidden').hide();
+		$('#category-tabs li a').click(function(){
+	    	$(this).next('ul').slideToggle('500');
+		}); 
+
+		$(function() {
+		  $("form[name='form']").validate({
+		    rules: {
+		      name: "required",
+		      email: {
+		        required: true,
+		        email: true
+		      },
+		      telephone: { 
+		      	required: true, 
+		      	number: true 
+		      },
+		      date: "required",
+		      time: "required",
+		      numberGolfers: "required"
+		    },
+		    messages: {
+		      name: "Please enter your name",
+		      email: "Please enter a valid email address",
+		      telephone: "Please enter your telephone number",
+		      date: "Please enter a valid date",
+		      time: "Please enter a valid time",
+		      numberGolfers: "Please enter a valid number of golfers"
+		    },
+		    submitHandler: function(form) {
+		      form.submit();
+		    }
+		  });
+		});
+	</script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
+</body>
+</html>
